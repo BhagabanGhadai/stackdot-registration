@@ -4,6 +4,7 @@ const { default: helmet } = require('helmet');
 const morgan = require('morgan');
 const cors = require('cors');
 const { globalRouter } = require('./routes');
+const { globalErrorHandler } = require('./middlewares/globalErrorHandler');
 const connectDB = require('./utils/db');
 const app = express();
 connectDB();
@@ -14,6 +15,8 @@ app.use(helmet())
 app.use(cors())
 app.use(morgan('dev'))
 globalRouter(app)
+app.use(globalErrorHandler)
+
 
 app.listen(configs.PORT, () => {
     console.log(`server is running on port ${configs.PORT}`);
