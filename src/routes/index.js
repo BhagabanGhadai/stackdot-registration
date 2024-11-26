@@ -3,7 +3,8 @@ const boardRouter=require('./boardRouter');
 const mediumRouter=require('./mediumRouter');
 const classCatrgoryRouter=require('./classCategoryRouter');
 const standardRouter=require('./standardRouter');
-const subjcetRouter = require
+const subjcetRouter = require('./subjectRouter');
+const registrationRouter = require('./registrationRouter');
 
 exports.globalRouter = (app) => {
     //routes
@@ -13,7 +14,8 @@ exports.globalRouter = (app) => {
     app.use('/api/v1/classcategory',classCatrgoryRouter)
     app.use('/api/v1/standards',standardRouter)
     app.use('/api/v1/subjcets',subjcetRouter)
-    
+    app.use('/api/v1/registration',registrationRouter)
+
     //health check
     app.get('/health-check', (req, res) => {
         res.status(200).send({
