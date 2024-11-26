@@ -20,6 +20,7 @@ exports.createRegistration = async (req, res) => {
             studyMediumModel.findById(medium),
         ]);
         if (!institueDetails || !boardDetails || !standardDetails || !classCategoryDetails || !subjectDetails || !mediumDetails) throw new Error("Invalid Details")
+        
         const registration = await registrationModel.create(req.body);
         res.status(201).send({ status: 201, success: true, message: "Registration Created Successfully", registration });
     } catch (err) {

@@ -7,7 +7,7 @@ const userRegistrationSchema=new mongoose.Schema({
     standard:{type:mongoose.Schema.Types.ObjectId,ref:'standards',required:true},
     subject:[{type:mongoose.Schema.Types.ObjectId,ref:'subjcets',required:true}],
     medium:{type:mongoose.Schema.Types.ObjectId,ref:'medium',required:true},
-    class:{type:mongoose.Schema.Types.ObjectId,ref:'class-category',required:true},
+    classCategory:{type:mongoose.Schema.Types.ObjectId,ref:'class-category',required:true},
 },{timestamps:true})
 
 module.exports=mongoose.model('user-registration',userRegistrationSchema,'user-registration')
